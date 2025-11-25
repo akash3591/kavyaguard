@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+    <div class="form-card" style="width: 380px; padding: 35px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.5);">
+
+        <h2 style="text-align:center; margin-bottom: 20px; color: white; font-size: 28px;">
+            Create Account
+        </h2>
+
+        <form action="{{ url_for('signup') }}" method="POST">
+
+            <input type="text" name="name" placeholder="Full Name" required
+                   style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px;
+                   border: none; background: rgba(255,255,255,0.1); color: white;">
+
+            <input type="email" name="email" placeholder="Email" required
+                   style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px;
+                   border: none; background: rgba(255,255,255,0.1); color: white;">
+
+            <input type="password" name="password" placeholder="Password" required
+                   style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px;
+                   border: none; background: rgba(255,255,255,0.1); color: white;">
+
+            <button type="submit"
+                    style="width: 100%; padding: 12px; margin-top: 10px; background: linear-gradient(90deg,#4A90E2,#007bff); border: none; color: white; border-radius: 10px; font-size: 17px; cursor: pointer;">
+                Register
+            </button>
+        </form>
+
+        <p style="text-align:center; margin-top: 15px; color: #ddd;">
+            Already have an account?
+            <a href="{{ url_for('login') }}" style="color:#4A90E2; text-decoration:none;">Login</a>
+        </p>
+
+    </div>
+</div>
+{% endblock %}
