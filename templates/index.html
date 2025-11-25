@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Home — KavyaGuard{% endblock %}
+
+{% block content %}
+
+<div class="hero-card">
+
+    <div class="hero-grid">
+
+        <div class="hero-left">
+            <p class="kicker">AI-powered safety tool</p>
+
+            <h1 class="hero-title">
+                Detect Hate Speech<br>in Kannada Text
+            </h1>
+
+            <p class="hero-sub">
+                KavyaGuard helps identify harmful or offensive Kannada content using AI-powered text analysis.
+            </p>
+
+            <!-- FIXED BUTTON — using register instead of signup -->
+            {% if not session.get('user') %}
+                <a class="cta" href="{{ url_for('signup') }}">Register Now</a>
+            {% else %}
+                <a class="cta" href="{{ url_for('detect') }}">Start Detection</a>
+            {% endif %}
+        </div>
+
+        <div class="hero-illustration">
+            <img src="{{ url_for('static', filename='images/magnifier.png') }}" 
+                 alt="Magnifier" class="hero-img">
+        </div>
+
+    </div>
+
+    <div class="how">
+        <div>
+            <h2>How it works</h2>
+            <p>KavyaGuard processes your text and analyzes it for hate or offensive patterns using machine learning.</p>
+        </div>
+
+        <div class="arrow">→</div>
+    </div>
+
+</div>
+
+{% endblock %}
