@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-wrapper">
+
+    <!-- CENTER WELCOME BOX -->
+    <div class="welcome-card">
+        <h2>Welcome, {{ user_name }} 👋</h2>
+        <p>You have successfully logged in.</p>
+
+        <a class="detect-btn" href="{{ url_for('detect') }}">
+            Go to Hate Speech Detector
+        </a>
+    </div>
+
+    <!-- EXAMPLES SECTION AT BOTTOM -->
+    <div class="examples-section">
+        <h2 class="example-title">Kannada Hate & Non-Hate Examples</h2>
+
+        <div class="example-container">
+
+            <!-- LEFT COLUMN: NON-HATE -->
+            <div class="column">
+                <h3 class="non-hate-title">Non-Hate 💙</h3>
+
+                <div class="example-item nonhate">"ನೀವು ಚೆನ್ನಾಗಿ ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೀರಿ!"</div>
+                <div class="example-item nonhate">"ನಿಮ್ಮ ಅಭಿಪ್ರಾಯ ಒಳ್ಳೆಯದು."</div>
+                <div class="example-item nonhate">"ನೀವು ದಿನ ಒಳ್ಳೆಯವಾಗಲಿ."</div>
+                <div class="example-item nonhate">"ನಿಮ್ಮ ಮಾತು ತುಂಬಾ ಶಾಂತವಾಗಿದೆ."</div>
+                <div class="example-item nonhate">"ನಿಮ್ಮ ನಡೆಕೆ ಜನಪ್ರಿಯವಾಗಿದೆ."</div>
+            </div>
+
+            <!-- RIGHT COLUMN: HATE -->
+            <div class="column">
+                <h3 class="hate-title">Hate ⚠️</h3>
+
+                <div class="example-item hate">"ನಿನ್ನಂತಹವರು ಇಲ್ಲಿ ಬೇಡ!"</div>
+                <div class="example-item hate">"ನಿನಗೆ ಅಲ್ಪದೃಷ್ಟಿ ಇದ್ದೀಯಾ?"</div>
+                <div class="example-item hate">"ನೀನು ಏನೂ ಕೆಲಸಕ್ಕೆ ಬರೋದಿಲ್ಲ."</div>
+                <div class="example-item hate">"ನಿನ್ನ ಮಾತು ಗದ್ದಲ ಮಾಡುತ್ತದೆ!"</div>
+                <div class="example-item hate">"ನಿನ್ನ ಬಾಯಿ ಮುಚ್ಚು!"</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

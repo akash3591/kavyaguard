@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="navbar">
+    
+    <!-- Logo -->
+    <a href="{{ url_for('index') }}" class="logo">KavyaGuard</a>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+
+      {% if session.get('user') %}
+          <!-- User is logged in -->
+          <a href="{{ url_for('detect') }}">Detect</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+
+      {% else %}
+          <!-- User is NOT logged in -->
+          <a href="{{ url_for('login') }}">Login</a>
+          <a href="{{ url_for('signup') }}">Register</a>
+      {% endif %}
+      
+    </nav>
+
+  </div>
+</header>

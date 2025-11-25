@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}KavyaGuard{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="navbar-inner">
+        <div class="brand">KAVYAGUARD</div>
+
+        <nav class="nav-links">
+
+            {% if request.endpoint == 'index' %}
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('login') }}">Login</a>
+
+            {% else %}
+                <a href="{{ url_for('dashboard') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+
+                {% if session.get('email') %}
+                    <a href="{{ url_for('detect') }}">Detect</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('signup') }}">Register</a>
+                {% endif %}
+            {% endif %}
+        </nav>
+    </div>
+</header>
+
+<div class="page-container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
